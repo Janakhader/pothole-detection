@@ -24,12 +24,24 @@ Trained on a public pothole dataset, the model reached:
 - **Dataset:** public pothole dataset (Roboflow)
 - **Approach:** transfer learning from pre-trained weights, then fine-tuned on potholes
 
+## Repository contents
+
+- `pothole.ipynb` — the full training and detection notebook (Google Colab)
+- `train.py` — training script
+- `detect.py` — inference script for running detection on a video
+
+## Model file
+
+The trained model (`best.pt`) is not stored in this repository, since large model
+files don't belong in Git. It's available on request, or can be reproduced by
+running the training notebook on the pothole dataset.
+
 ## Running it
 
 ```python
 from ultralytics import YOLO
 
-model = YOLO("best.pt")          # the trained model
+model = YOLO("best.pt")          # the trained model (see "Model file" above)
 model.predict(source="road.mp4", save=True, conf=0.5)
 ```
 
